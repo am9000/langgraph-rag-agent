@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  pgvector:
+    container_name: pgvector-container
+    image: pgvector/pgvector:pg16
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: z9000
+      POSTGRES_PASSWORD: z9000
+      POSTGRES_DB: z9000
