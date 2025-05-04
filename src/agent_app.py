@@ -1,0 +1,53 @@
+from langgraph.graph import MessagesState
+from langchain_core.messages import HumanMessage, SystemMessage
+from langchain_community.tools import DuckDuckGoSearchRun
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langgraph.graph import START, StateGraph
+from langgraph.prebuilt import tools_condition
+from langgraph.prebuilt import ToolNode
+import os
+from dotenv import load_dotenv
+
+
+load_dotenv(override=True)
+
+system_msg = SystemMessage(content="Jesteś asystentem wyszukującym informacje.")
+search = DuckDuckGoSearchRun()
+
+tools = [search]
+
+llm = ChatGoogleGenerativeAI(
+    model="gemini-2.0-flash",
+    temperature=0,
+    max_tokens=None,
+    timeout=None,
+    max_retries=2
+)
+
+llm_with_tools = llm.bind_tools(tools)
+
+def reasoner(state: MessagesState):
+   return {"messages": [llm_with_tools.invoke([system_msg] + state["messages"])]}
+
+builder = StateGraph(MessagesState)
+
+builder.add_node("reasoner", reasoner)
+builder.add_node("tools", ToolNode(tools))
+
+builder.add_edge(START, "reasoner")
+builder.add_conditional_edges(
+    "reasoner",
+    tools_condition
+)
+builder.add_edge("tools", "reasoner")
+
+agent_graph = builder.compile()
+
+while True:
+    query = input("You: ")
+    if query.lower() == "exit":
+        break
+    
+    result = agent_graph.invoke({"input": query})
+    
+    print(f"AI: {result['answer']}")
