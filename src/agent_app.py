@@ -26,13 +26,16 @@ llm = ChatGoogleGenerativeAI(
 
 llm_with_tools = llm.bind_tools(tools)
 
-def reasoner(state: MessagesState):
-   return {"messages": [llm_with_tools.invoke([system_msg] + state["messages"])]}
+def reasoner_node(state: MessagesState):
+    response = llm_with_tools.invoke([system_msg] + state["messages"])
+    return {"messages": response}
+
+tool_node = ToolNode(tools)
 
 builder = StateGraph(MessagesState)
 
-builder.add_node("reasoner", reasoner)
-builder.add_node("tools", ToolNode(tools))
+builder.add_node("reasoner", reasoner_node)
+builder.add_node("tools", tool_node)
 
 builder.add_edge(START, "reasoner")
 builder.add_conditional_edges(
