@@ -1,0 +1,35 @@
+{'messages': [SystemMessage(content='Jesteś asystentem wyszukującym informacje.', additional_kwargs={}, response_metadata={}, id='79c51395-b8b3-467d-8eac-02caaa447942'), HumanMessage(content="Jakie są najnowsze wiadomości? Użyj DuckDuckGo do wyszukiwania i zapytaj 'co nowego'", additional_kwargs={}, response_metadata={}, id='0bda4dbb-45f2-4f27-b67b-6da280e32d7a'), AIMessage(content='', additional_kwargs={'function_call': {'name': 'duckduckgo_results_json', 'arguments': '{
+                    "query": "co nowego"
+                }'
+            }
+        }, response_metadata={'prompt_feedback': {'block_reason': 0, 'safety_ratings': []
+            }, 'finish_reason': 'STOP', 'model_name': 'gemini-2.0-flash', 'safety_ratings': []
+        }, id='run--7f30d955-78b8-4609-ba6a-c7cc66333503-0', tool_calls=[
+            {'name': 'duckduckgo_results_json', 'args': {'query': 'co nowego'
+                }, 'id': '6f279e9e-c9cf-459e-ab84-6baa3f780f68', 'type': 'tool_call'
+            }
+        ], usage_metadata={'input_tokens': 94, 'output_tokens': 10, 'total_tokens': 104, 'input_token_details': {'cache_read': 0
+            }
+        }), ToolMessage(content='[
+            {
+                "snippet": "Co nowego na Netflix? Maj 2025 zapowiada się ekscytująco. Nie zabraknie filmów, seriali, dokumentów i propozycji dla najmłodszych. ... śledzi perypetie trzech małżeństw, spotykających się co kwartał na weekendowym wyjeździe. Gdy jedno z nich się rozpada, wspólna tradycja prowadzi do całej serii niezręczności. W obsadzie m.in.: ...",
+                "title": "Netflix nowości - maj 2025. Premiery filmów i seriali - NANO",
+                "link": "https://nano.komputronik.pl/n/nowosci-netflix-co-ogladac/"
+            },
+            {
+                "snippet": "Co oglądać na Netflix? Wszystkie tytuł w jednym miejscu. Przejdź do treści . jakitelewizorkupic.pl. O telewizorach wiemy wszystko. Opublikowane w 2 maja, 2025 2 maja, 2025 przez jakitelewizorkupic.pl. ... To idealne miejsce, aby znaleźć coś nowego i ekscytującego, bez konieczności przeszukiwania setek tytułów w katalogach VOD.",
+                "title": "Nowości Netflix 2025: lista premier (maj 2025) - jakitelewizorkupic.pl",
+                "link": "https://jakitelewizorkupic.pl/premiery-netflix/"
+            },
+            {
+                "snippet": "Dowiedz się, jakie filmy, seriale i programy oraz gry wkrótce zadebiutują na Netflix. Sprawdź nowe tytuły, daty premier, opisy i obsady oraz dowiedz się, jak korzystać z serwisu Netflix.",
+                "title": "About Netflix - Premiery na Netflix",
+                "link": "https://about.netflix.com/pl/new-to-watch"
+            },
+            {
+                "snippet": "Okazuje się, że kobieta skrywa pewne tajemnice, co nie daje spokoju pani domu. Serial, z Reese Witherspoon w jednej z głównych ról, inspirowany jest powieścią Celeste Ng o tym samym tytule. Premiera tej nowości Disney+ już 28 maja 2025 roku. Reżyseria: Lynn Shelton, Nzingha Stewart, Michael Weaver; Scenariusz: Liz Tigelaar i inni ...",
+                "title": "Nowości Disney+ na maj 2025. Nowe filmy i seriale - NANO",
+                "link": "https://nano.komputronik.pl/n/nowosci-disney-plus-filmy-seriale/"
+            }
+        ]', name='duckduckgo_results_json', id='2feb999e-81ac-48a1-9bcb-1c9688272ca4', tool_call_id='6f279e9e-c9cf-459e-ab84-6baa3f780f68', artifact=[
+            {'snippet': 'Co nowego na Netflix? Maj 2025 zapowiada się ekscytująco. Nie zabraknie filmów, seriali, dokumentów i propozycji dla najmłodszych. ... śledzi perypetie trzech małżeństw, spotykających się co kwartał na weekendowym wyjeździe. Gdy jedno z nich się rozpada, wspólna tradycja prowadzi do całej serii niezręczności. W obsadzie m.in.: ...', 'title': 'Netflix nowości - maj 2025. Premiery filmów i seriali - NANO', 'link': 'https: //nano.komputronik.pl/n/nowosci-netflix-co-ogladac/'}, {'snippet': 'Co oglądać na Netflix? Wszystkie tytuł w jednym miejscu. Przejdź do treści . jakitelewizorkupic.pl. O telewizorach wiemy wszystko. Opublikowane w 2 maja, 2025 2 maja, 2025 przez jakitelewizorkupic.pl. ... To idealne miejsce, aby znaleźć coś nowego i ekscytującego, bez konieczności przeszukiwania setek tytułów w katalogach VOD.', 'title': 'Nowości Netflix 2025: lista premier (maj 2025) - jakitelewizorkupic.pl', 'link': 'https://jakitelewizorkupic.pl/premiery-netflix/'}, {'snippet': 'Dowiedz się, jakie filmy, seriale i programy oraz gry wkrótce zadebiutują na Netflix. Sprawdź nowe tytuły, daty premier, opisy i obsady oraz dowiedz się, jak korzystać z serwisu Netflix.', 'title': 'About Netflix - Premiery na Netflix', 'link': 'https://about.netflix.com/pl/new-to-watch'}, {'snippet': 'Okazuje się, że kobieta skrywa pewne tajemnice, co nie daje spokoju pani domu. Serial, z Reese Witherspoon w jednej z głównych ról, inspirowany jest powieścią Celeste Ng o tym samym tytule. Premiera tej nowości Disney+ już 28 maja 2025 roku. Reżyseria: Lynn Shelton, Nzingha Stewart, Michael Weaver; Scenariusz: Liz Tigelaar i inni ...', 'title': 'Nowości Disney+ na maj 2025. Nowe filmy i seriale - NANO', 'link': 'https://nano.komputronik.pl/n/nowosci-disney-plus-filmy-seriale/'}]), AIMessage(content='Wygląda na to, że najnowsze wiadomości dotyczą głównie nowości na platformach streamingowych takich jak Netflix i Disney+ w maju 2025 roku.', additional_kwargs={}, response_metadata={'prompt_feedback': {'block_reason': 0, 'safety_ratings': []}, 'finish_reason': 'STOP', 'model_name': 'gemini-2.0-flash', 'safety_ratings': []}, id='run--bd8752ad-5eb1-4ea7-bdaa-3b3058363ff1-0', usage_metadata={'input_tokens': 634, 'output_tokens': 36, 'total_tokens': 670, 'input_token_details': {'cache_read': 0}})]}

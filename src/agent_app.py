@@ -1,6 +1,6 @@
 from langgraph.graph import MessagesState
 from langchain_core.messages import HumanMessage, SystemMessage
-from langchain_community.tools import DuckDuckGoSearchRun
+from langchain_community.tools import DuckDuckGoSearchResults
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.graph import START, StateGraph
 from langgraph.prebuilt import tools_condition
@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 load_dotenv(override=True)
 
 system_msg = SystemMessage(content="Jesteś asystentem wyszukującym informacje.")
-search = DuckDuckGoSearchRun()
+search = DuckDuckGoSearchResults(output_format="list")
 
 tools = [search]
 
@@ -46,11 +46,18 @@ builder.add_edge("tools", "reasoner")
 
 agent_graph = builder.compile()
 
+config = {"configurable": {"thread_id": "abc123"}}
+
+messages = [system_msg]
+
 while True:
-    query = input("You: ")
-    if query.lower() == "exit":
+    human_message = input("Human Message: ")
+    if human_message.lower() == "exit":
         break
-    
-    result = agent_graph.invoke({"input": query})
-    
-    print(f"AI: {result['answer']}")
+
+    messages.append(HumanMessage(content=human_message))
+
+    output = agent_graph.invoke({"messages": messages}, config)
+
+    messages = output["messages"]
+    messages[-1].pretty_print()
