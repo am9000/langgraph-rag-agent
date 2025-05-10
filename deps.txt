@@ -2,6 +2,8 @@ pip install -qU
 
 langchain-google-genai
 
+duckduckgo-search
+
 langchain_postgres
 
 langchain_community
@@ -13,3 +15,5 @@ hf_xet
 
 pandas
 ipywidgets tqdm
+
+pip install "psycopg[binary]"
