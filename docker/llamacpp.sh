@@ -1,0 +1,1 @@
+docker run -v ./models:/models -p 8000:8000 ghcr.io/ggml-org/llama.cpp:server -m /models/gemma-3-4b-it-q4_0.gguf --port 8000 --host 0.0.0.0 -n 512

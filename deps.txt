@@ -17,3 +17,7 @@ pandas
 ipywidgets tqdm
 
 pip install "psycopg[binary]"
+
+sudo apt-get install gcc
+sudo apt-get install g++
+pip install -qU llama-cpp-python
